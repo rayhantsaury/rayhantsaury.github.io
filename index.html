@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Image and Audio Processing</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Website Image and Audio Processing</h1>
+
+  <div class="container">
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Image Processing</title>
+      <style>
+        .image-processing-container {
+          text-align: center;
+        }
+    
+        .image-processing {
+          display: inline-block;
+          text-align: left;
+          padding: 40px;
+          border: 1px solid #ccc;
+        }
+    
+        .preview-container {
+          margin-bottom: 10px;
+        }
+    
+        .processing-options button {
+          margin-right: 10px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="image-processing-container">
+        <div class="image-processing">
+          <h2>Image Processing</h2>
+          <input type="file" id="imageInput">
+          <div class="preview-container">
+            <img id="imagePreview" src="" alt="Image Preview">
+          </div>
+          <div class="processing-options">
+            <button id="grayscaleBtn">Grayscale</button>
+            <button id="blurBtn">Blur</button>
+            <button id="manualResizeBtn">Manual Resize</button>
+            <button id="downloadBtn" style="display: none;">Download Image</button>
+
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const imageInput = document.getElementById('imageInput');
+          const imagePreview = document.getElementById('imagePreview');
+          const grayscaleBtn = document.getElementById('grayscaleBtn');
+          const blurBtn = document.getElementById('blurBtn');
+          const manualResizeBtn = document.getElementById('manualResizeBtn');
+    
+          // Event listener when image input changes
+          imageInput.addEventListener('change', function() {
+            const file = imageInput.files[0];
+            const reader = new FileReader();
+    
+            reader.onload = function(e) {
+              imagePreview.src = e.target.result;
+            };
+    
+            reader.readAsDataURL(file);
+          });
+    
+          // Event listener for grayscale button click
+          grayscaleBtn.addEventListener('click', function() {
+            // Apply grayscale effect to the image (implementation needed)
+          });
+    
+          // Event listener for blur button click
+          blurBtn.addEventListener('click', function() {
+            // Apply blur effect to the image (implementation needed)
+          });
+    
+          // Event listener for manual resize button click
+          manualResizeBtn.addEventListener('click', function() {
+            // Prompt user for manual resize dimensions (implementation needed)
+          });
+        });
+      </script>
+    </body>
+    </html>
+    
+
+    <div class="audio-processing-container">
+      <div class="audio-processing">
+        <h2>Audio Processing</h2>
+        <input type="file" id="inputFile" accept="audio/*">
+        <button onclick="compressAudio()">Kompresi</button>
+        <br>
+        <audio controls id="outputAudio"></audio>
+        <br>
+        <a href="#" id="downloadLink" download="compressed_audio.wav" class="button-download" style="display: none;">Unduh Audio</a>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
